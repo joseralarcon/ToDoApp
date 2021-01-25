@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+:root {
+  --primary-font-family: "Montserrat";
+  --primary-gap: 1em;
+  --primary-color: #f2f2f2;
+  --secondary-color: #81a65d;
+
+  /*Page*/
+  --page-width: 100%;
+  --page-height: 100vh;
+  --page-background: #94a6a1;
+
+  /*Container ToDo*/
+  --ctd-max-width: 500px;
+  --ctd-height: 55vh;
+  --ctd-template-rows: 80px minmax(80px, auto) 1fr;
+
+  /*Container ToDo Elements*/
+  --cte-background: #3b5659;
+  --cte-padding: 10px;
+
+  /*Container Add ToDo*/
+  --catd-template-columns: 1fr 40px;
+
+  /*Container Add ToDo Elements*/
+  --catd-icon-font-size: 40px;
+  --catd-input-font-size: 20px;
+  --catd-input-padding-left: 10px;
+
+  /* Container List List-Item*/
+  --clli-template-columns: 1fr 4fr 1fr;
+  --clli-auto-rows: minmax(40px auto);
+  --clli-padding: 15px 20px;
+  --clli-border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  --clli-icon-font-size: 25px;
+  --clli-icon-delete-hover: #f23005;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--primary-font-family);
+}
+
+/*Page*/
+#page {
+  width: var(--page-width);
+  height: var(--page-height);
+  background: var(--page-background);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5%;
+}
+/*Container ToDo*/
+#container_todo {
+  display: grid;
+  grid-template-rows: var(--ctd-template-rows);
+  row-gap: var(--primary-gap);
+  width: 100%;
+  max-width: var(--ctd-max-width);
+  height: var(--ctd-height);
+}
+
+/*Container ToDo Elements*/
+#container_todo > div {
+  background-color: var(--cte-background);
+  padding: var(--cte-padding);
+}
+
+/*Container Add ToDo*/
+#container_add_todo {
+  display: grid;
+  grid-template-columns: var(--catd-template-columns);
+  column-gap: var(--primary-gap);
+}
+
+/*Container Add ToDo Elements*/
+#container_add_todo i {
+  display: flex;
+  align-self: center;
+  font-size: var(--catd-icon-font-size);
+  color: var(--primary-color);
+}
+
+#container_add_todo input {
+  font-family: var(--primary-font-family);
+  background-color: transparent;
+  color: var(--primary-color);
+  border: none;
+  font-size: var(--catd-input-font-size);
+  padding-left: var(--catd-input-padding-left);
+}
+
+#container_add_todo input::placeholder {
+  color: var(--primary-color);
+}
+
+/* Container List*/
+#container_list {
+  overflow-y: auto;
+  color: var(--primary-color);
+}
+
+/* Container List List-Item*/
+.list-item {
+  display: grid;
+  grid-template-columns: var(--clli-template-columns);
+  grid-auto-rows: var(--clli-auto-rows);
+  padding: var(--clli-padding);
+  border-bottom: var(--clli-border-bottom);
+}
+
+.list-item * {
+  display: flex;
+  align-self: center;
+}
+
+.list-item i {
+  justify-self: center;
+}
+
+.list-item i.co,
+.list-item i.de {
+  font-size: var(--clli-icon-font-size);
+}
+
+.list-item i.co:hover,
+.list-item i.de:hover {
+  cursor: pointer;
+}
+
+.list-item i.de:hover {
+  color: var(--clli-icon-delete-hover);
+}
+
+.lineThrough {
+  text-decoration: line-through;
+  color: white;
+}
+
+#add_icon:hover {
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+
+.fa-check-circle {
+  color: var(--secondary-color);
+}
